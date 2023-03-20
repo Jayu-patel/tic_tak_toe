@@ -7,18 +7,34 @@ for(let i=0; i<9; i++){
 tempbox.innerHTML = txt
 
 const box1 = document.querySelectorAll('.box1')
+const result = document.querySelector('.btn')
+const text = document.getElementById("text")
+const reload = document.getElementById("reload")
+
+const turn = document.querySelector('.turnn')
+turn.innerHTML = 'Its Xs turn'
+
 const cross = 'X'
 const circle = 'O'
+let circleTurn = false
 
 let win = false
 const winPossibilities =[ [0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6] ]
 
 const circleWin=()=>{
-    setTimeout(()=>{alert("Circle win")},150)
+    setTimeout(()=>{
+        result.style.display = 'grid'
+        text.innerText = 'Circle Wins!!!'
+        turn.innerHTML = 'Game Over'
+    },150)
     win = true
 }
 const crossWin=()=>{
-    setTimeout(()=>{alert("Cross win")},150)
+    setTimeout(()=>{
+        result.style.display = 'grid'
+        text.innerText = 'Cross Wins!!!'
+        turn.innerHTML = 'Game Over'
+    },150)
     win = true
 }
 
@@ -34,17 +50,22 @@ const winner=()=>{
 }
 
 const over=()=>{
-    setTimeout(()=>{alert("game over")},150)
+    setTimeout(()=>{
+        result.style.display = 'grid'
+        text.innerText = 'No one wins!'
+        turn.innerHTML = 'Game Over'
+    },150)
 }
 
 let n = 0
 box.forEach((e, i)=>{
     e.addEventListener('click',()=>{
-        if(n<=8){
+        if(n<=8 && !win){
             n++
             if(n%2==0){
                 if(e.innerHTML === ''){
                     e.innerHTML = `<div class="inner_box">${circle}</div>`
+                    turn.innerHTML = 'Its Xs turn'
                     box1[i].innerHTML = '0'
 
                     winner()
@@ -56,6 +77,7 @@ box.forEach((e, i)=>{
             }else{
                 if(e.innerHTML === ''){
                     e.innerHTML = `<div class="inner_box">${cross}</div>`
+                    turn.innerHTML = 'Its Os turn'
                     box1[i].innerHTML = '1'
 
                     winner()
@@ -66,4 +88,8 @@ box.forEach((e, i)=>{
                 }else{n--}}
         }
     })
+})
+
+reload.addEventListener('click',()=>{
+    location.reload()
 })

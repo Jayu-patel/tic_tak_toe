@@ -3,9 +3,12 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    background: rgba(34, 114, 255, 0.8);
+}
 .main_box{
     width: 100%;
-    height: 100vh;
+    height: 75vh;
     display: grid;
     place-items: center;
 }
@@ -18,29 +21,53 @@
     display: grid;
     grid-template-columns: repeat(3, 100px);
     grid-template-rows: repeat(3, 100px);
-    gap: 1px;
     font-size: 3rem;
-}
-.unclick{
-    color: black;
+    color: white;
 }
 .box{
-    border: 1px solid black;
+    border: 1px solid white;
     display: grid;
     place-items: center;
-    position: relative;
+    z-index: 0;
 }
 .box:hover{
-    background: rgba(220, 220, 220, 0.8);
+    background: rgba(220, 220, 220, 0.4);
 }
 .temp_box{
-    width: 100%;
     display: grid;
-    grid-template-columns: repeat(3, 20px);
-    grid-template-rows: repeat(3, 20px);
-    opacity: 0;
     display: none;
 }
-.temp_box .box1{
-    border: 1px solid black;
+.btn{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    text-align: center;
+    display: none;
+    place-items: center;
+}
+.btn button{
+    padding: 12px 14px;
+    background: white;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.btn button:hover{
+    background: rgba(255, 255, 255, 0.9);
+}
+.btn h1{
+    font-size: 3rem;
+}
+.turn{
+    width: 100%;
+    height: 25vh;
+    display: flex;
+    justify-content: center;
+    color: white;
 }
