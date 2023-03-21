@@ -30,9 +30,6 @@ body{
     place-items: center;
     z-index: 0;
 }
-.box:hover{
-    background: rgba(220, 220, 220, 0.4);
-}
 .temp_box{
     display: grid;
     display: none;
@@ -47,7 +44,13 @@ body{
     color: white;
     text-align: center;
     display: none;
-    place-items: center;
+    /* place-items: center; */
+}
+.btn div{
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 70vh;
 }
 .btn button{
     padding: 12px 14px;
@@ -70,4 +73,9 @@ body{
     display: flex;
     justify-content: center;
     color: white;
+}
+@media (width >= 900px) {
+    .box:hover{
+        background: rgba(220, 220, 220, 0.4);
+    }
 }

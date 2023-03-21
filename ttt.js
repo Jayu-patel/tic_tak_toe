@@ -23,27 +23,34 @@ const winPossibilities =[ [0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], 
 
 const circleWin=()=>{
     setTimeout(()=>{
-        result.style.display = 'grid'
+        result.style.display = 'block'
         text.innerText = 'Circle Wins!!!'
-        turn.innerHTML = 'Game Over'
+        turn.innerHTML = ''
     },150)
     win = true
 }
 const crossWin=()=>{
     setTimeout(()=>{
-        result.style.display = 'grid'
+        result.style.display = 'block'
         text.innerText = 'Cross Wins!!!'
-        turn.innerHTML = 'Game Over'
+        turn.innerHTML = ''
     },150)
     win = true
 }
 
+const txt1 = '3px solid red'
 const winner=()=>{
     winPossibilities.forEach(e=>{
         if(box1[e[0]].innerHTML == '0' && box1[e[1]].innerHTML == '0' && box1[e[2]].innerHTML == '0'){
+            box[e[0]].style.border = txt1
+            box[e[1]].style.border = txt1
+            box[e[2]].style.border = txt1
             circleWin()
         }
         else if(box1[e[0]].innerHTML == '1' && box1[e[1]].innerHTML == '1' && box1[e[2]].innerHTML == '1'){
+            box[e[0]].style.border = txt1
+            box[e[1]].style.border = txt1
+            box[e[2]].style.border = txt1
             crossWin()
         }
     })
@@ -51,9 +58,9 @@ const winner=()=>{
 
 const over=()=>{
     setTimeout(()=>{
-        result.style.display = 'grid'
+        result.style.display = 'block'
         text.innerText = 'No one wins!'
-        turn.innerHTML = 'Game Over'
+        turn.innerHTML = ''
     },150)
 }
 
