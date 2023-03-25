@@ -16,10 +16,10 @@ turn.innerHTML = 'Its Xs turn'
 
 const cross = 'X'
 const circle = 'O'
-let circleTurn = false
 
 let win = false
 const winPossibilities =[ [0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6] ]
+let winn = false
 
 const circleWin=()=>{
     setTimeout(()=>{
@@ -37,20 +37,26 @@ const crossWin=()=>{
     },150)
     win = true
 }
-
-const txt1 = '3px solid red'
+const txt1 = '2px solid black'
+const txt2 = 'rgba(34, 114, 255, 0.8)'
 const winner=()=>{
     winPossibilities.forEach(e=>{
-        if(box1[e[0]].innerHTML == '0' && box1[e[1]].innerHTML == '0' && box1[e[2]].innerHTML == '0'){
-            box[e[0]].style.border = txt1
-            box[e[1]].style.border = txt1
-            box[e[2]].style.border = txt1
+        if((box1[e[0]].innerHTML == '0' && box1[e[1]].innerHTML == '0' && box1[e[2]].innerHTML == '0') && !winn){
+            winn = true
+            for(let i = 0; i<3 ; i++){
+                box[e[i]].style.background = 'white'
+                box[e[i]].style.border = txt1
+                box[e[i]].style.color = txt2
+            }
             circleWin()
         }
-        else if(box1[e[0]].innerHTML == '1' && box1[e[1]].innerHTML == '1' && box1[e[2]].innerHTML == '1'){
-            box[e[0]].style.border = txt1
-            box[e[1]].style.border = txt1
-            box[e[2]].style.border = txt1
+        else if((box1[e[0]].innerHTML == '1' && box1[e[1]].innerHTML == '1' && box1[e[2]].innerHTML == '1') && !winn){
+            winn = true
+            for(let i = 0; i<3 ; i++){
+                box[e[i]].style.background = 'white'
+                box[e[i]].style.border = txt1
+                box[e[i]].style.color = txt2
+            }
             crossWin()
         }
     })
