@@ -74,7 +74,7 @@ body{
     justify-content: center;
     color: white;
 }
-@media (width >= 900px) {
+@media (min-width: 900px) {
     .box:hover{
         background: rgba(220, 220, 220, 0.4);
     }
